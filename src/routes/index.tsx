@@ -45,7 +45,9 @@ function Loader() {
             className="h-full w-1/2 bg-gradient-to-r from-cyan to-violet"
           />
         </div>
-        <div className="mt-3 text-xs uppercase tracking-[0.3em] text-muted-foreground">Loading portfolio</div>
+        <div className="mt-3 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          Loading portfolio
+        </div>
       </div>
     </motion.div>
   );

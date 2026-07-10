@@ -8,7 +8,11 @@ export function Experience() {
     <Section
       id="experience"
       eyebrow="Experience"
-      title={<>Simulations that ship <span className="text-gradient">real-world thinking</span>.</>}
+      title={
+        <>
+          Simulations that ship <span className="text-gradient">real-world thinking</span>.
+        </>
+      }
       subtitle="Structured, evaluated job simulations built by top employers on Forage."
     >
       <div className="relative">
@@ -27,19 +31,28 @@ export function Experience() {
                   className={`ml-10 md:ml-0 ${left ? "md:col-start-1 md:pr-10 md:text-right" : "md:col-start-2 md:pl-10"}`}
                 >
                   <div className="glass rounded-2xl p-6 relative overflow-hidden">
-                    <div className={`flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground mb-2 ${left ? "md:justify-end" : ""}`}>
+                    <div
+                      className={`flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground mb-2 ${left ? "md:justify-end" : ""}`}
+                    >
                       <Briefcase className="size-3.5" /> {e.period}
                     </div>
                     <h3 className="font-display text-xl font-semibold">{e.role}</h3>
                     <div className="text-sm text-cyan font-mono mt-0.5">{e.company}</div>
-                    <ul className={`mt-4 space-y-2 text-sm text-muted-foreground ${left ? "md:text-right" : ""}`}>
+                    <ul
+                      className={`mt-4 space-y-2 text-sm text-muted-foreground ${left ? "md:text-right" : ""}`}
+                    >
                       {e.bullets.map((b) => (
-                        <li key={b} className="leading-relaxed">— {b}</li>
+                        <li key={b} className="leading-relaxed">
+                          — {b}
+                        </li>
                       ))}
                     </ul>
                     <div className={`mt-4 flex flex-wrap gap-1.5 ${left ? "md:justify-end" : ""}`}>
                       {e.tech.map((t) => (
-                        <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-secondary/70 border border-border">
+                        <span
+                          key={t}
+                          className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-secondary/70 border border-border"
+                        >
                           {t}
                         </span>
                       ))}

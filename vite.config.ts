@@ -1,23 +1,44 @@
-/// <reference types="vitest" />
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
+import { nitro } from "nitro/vite";
+import viteReact from "@vitejs/plugin-react";
 import tailwind from "@tailwindcss/vite";
+import { fileURLToPath } from "node:url";
+import { dirname } from "node:path";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [
+    TanStackRouterVite({
+      enableRouteGeneration: false,
+      autoCodeSplitting: false,
+      plugin: {
+        hmr: {
+          style: "webpack",
+        },
+      },
+    }),
     tanstackStart(),
     tailwind(),
-    TanStackRouterVite(),
-    react(),
+    viteReact({
+      jsxImportSource: undefined,
+    }),
+    nitro(),
   ],
-  ssr: {
-    external: ["three"],
-  },
   resolve: {
     alias: {
-      "@": "/src",
+      "@": `${__dirname}/src`,
     },
+  },
+  server: {
+    port: 5173,
+    hmr: {
+      overlay: false,
+    },
+  },
+  ssr: {
+    external: ["three"],
   },
 });

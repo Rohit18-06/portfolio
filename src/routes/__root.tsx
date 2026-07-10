@@ -51,15 +51,22 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight">This page didn&rsquo;t load</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Something went wrong. Try again or head home.</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Something went wrong. Try again or head home.
+        </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="rounded-full bg-foreground text-background px-5 py-2.5 text-sm font-medium"
           >
             Try again
           </button>
-          <a href="/" className="rounded-full glass px-5 py-2.5 text-sm font-medium">Go home</a>
+          <a href="/" className="rounded-full glass px-5 py-2.5 text-sm font-medium">
+            Go home
+          </a>
         </div>
       </div>
     </div>
@@ -79,7 +86,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "author", content: "Oruganti Venkata Rohit" },
       { property: "og:title", content: "Rohit Oruganti — CS Student & Full-Stack Developer" },
-      { property: "og:description", content: "AI, full-stack and cloud projects by Rohit Oruganti." },
+      {
+        property: "og:description",
+        content: "AI, full-stack and cloud projects by Rohit Oruganti.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

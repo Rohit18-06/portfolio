@@ -5,15 +5,30 @@ import { toast } from "sonner";
 import { resume } from "@/data/resume";
 import { Section, TiltCard } from "./primitives";
 
-function CopyRow({ icon, label, value, href }: { icon: React.ReactNode; label: string; value: string; href?: string }) {
+function CopyRow({
+  icon,
+  label,
+  value,
+  href,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  href?: string;
+}) {
   const [copied, setCopied] = useState(false);
   return (
     <div className="glass rounded-2xl p-4 flex items-center gap-3 group">
-      <div className="grid place-items-center size-10 rounded-xl bg-cyan/15 text-cyan shrink-0">{icon}</div>
+      <div className="grid place-items-center size-10 rounded-xl bg-cyan/15 text-cyan shrink-0">
+        {icon}
+      </div>
       <div className="min-w-0 flex-1">
         <div className="text-xs uppercase tracking-widest text-muted-foreground">{label}</div>
         {href ? (
-          <a href={href} className="block truncate text-sm font-medium hover:text-cyan transition-colors">
+          <a
+            href={href}
+            className="block truncate text-sm font-medium hover:text-cyan transition-colors"
+          >
             {value}
           </a>
         ) : (
@@ -30,7 +45,11 @@ function CopyRow({ icon, label, value, href }: { icon: React.ReactNode; label: s
         }}
         className="p-2 rounded-lg hover:bg-secondary transition-colors"
       >
-        {copied ? <Check className="size-4 text-cyan" /> : <Copy className="size-4 text-muted-foreground" />}
+        {copied ? (
+          <Check className="size-4 text-cyan" />
+        ) : (
+          <Copy className="size-4 text-muted-foreground" />
+        )}
       </button>
     </div>
   );
@@ -44,14 +63,33 @@ export function Contact() {
     <Section
       id="contact"
       eyebrow="Contact"
-      title={<>Let&rsquo;s build something <span className="text-gradient">brilliant</span>.</>}
+      title={
+        <>
+          Let&rsquo;s build something <span className="text-gradient">brilliant</span>.
+        </>
+      }
       subtitle="Best reached via email or LinkedIn — I usually reply within a day."
     >
       <div className="grid lg:grid-cols-5 gap-6">
         <div className="lg:col-span-2 space-y-3">
-          <CopyRow icon={<Mail className="size-5" />} label="Email" value={resume.email} href={`mailto:${resume.email}`} />
-          <CopyRow icon={<Phone className="size-5" />} label="Phone" value={resume.phone} href={`tel:${resume.phone.replace(/\s+/g, "")}`} />
-          <CopyRow icon={<Linkedin className="size-5" />} label="LinkedIn" value="rohit-oruganti" href={resume.linkedin} />
+          <CopyRow
+            icon={<Mail className="size-5" />}
+            label="Email"
+            value={resume.email}
+            href={`mailto:${resume.email}`}
+          />
+          <CopyRow
+            icon={<Phone className="size-5" />}
+            label="Phone"
+            value={resume.phone}
+            href={`tel:${resume.phone.replace(/\s+/g, "")}`}
+          />
+          <CopyRow
+            icon={<Linkedin className="size-5" />}
+            label="LinkedIn"
+            value="rohit-oruganti"
+            href={resume.linkedin}
+          />
           <CopyRow icon={<MapPin className="size-5" />} label="Location" value={resume.location} />
         </div>
 
@@ -61,7 +99,9 @@ export function Contact() {
               e.preventDefault();
               setSending(true);
               const subject = encodeURIComponent(`Portfolio inquiry from ${state.name || "you"}`);
-              const body = encodeURIComponent(`${state.message}\n\n— ${state.name}\n${state.email}`);
+              const body = encodeURIComponent(
+                `${state.message}\n\n— ${state.name}\n${state.email}`,
+              );
               window.location.href = `mailto:${resume.email}?subject=${subject}&body=${body}`;
               setTimeout(() => {
                 setSending(false);
@@ -72,7 +112,9 @@ export function Contact() {
           >
             <div className="grid sm:grid-cols-2 gap-4">
               <label className="block">
-                <span className="text-xs uppercase tracking-widest text-muted-foreground">Name</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                  Name
+                </span>
                 <input
                   required
                   value={state.name}
@@ -83,7 +125,9 @@ export function Contact() {
                 />
               </label>
               <label className="block">
-                <span className="text-xs uppercase tracking-widest text-muted-foreground">Email</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                  Email
+                </span>
                 <input
                   required
                   type="email"
@@ -96,7 +140,9 @@ export function Contact() {
               </label>
             </div>
             <label className="block">
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">Message</span>
+              <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                Message
+              </span>
               <textarea
                 required
                 rows={5}
@@ -130,13 +176,28 @@ export function Footer() {
           © {new Date().getFullYear()} {resume.shortName}. Crafted with care.
         </div>
         <div className="flex items-center gap-3">
-          <a href={`mailto:${resume.email}`} aria-label="Email" className="p-2 rounded-full glass hover:bg-secondary transition-colors">
+          <a
+            href={`mailto:${resume.email}`}
+            aria-label="Email"
+            className="p-2 rounded-full glass hover:bg-secondary transition-colors"
+          >
             <Mail className="size-4" />
           </a>
-          <a href={resume.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="p-2 rounded-full glass hover:bg-secondary transition-colors">
+          <a
+            href={resume.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+            className="p-2 rounded-full glass hover:bg-secondary transition-colors"
+          >
             <Linkedin className="size-4" />
           </a>
-          <a href="#" aria-label="GitHub" className="p-2 rounded-full glass hover:bg-secondary transition-colors opacity-60" title="Add GitHub link when available">
+          <a
+            href="#"
+            aria-label="GitHub"
+            className="p-2 rounded-full glass hover:bg-secondary transition-colors opacity-60"
+            title="Add GitHub link when available"
+          >
             <Github className="size-4" />
           </a>
         </div>

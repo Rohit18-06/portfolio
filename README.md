@@ -35,18 +35,21 @@ A modern, interactive portfolio website built with React, TypeScript, and Three.
 ## Installation
 
 ### Prerequisites
+
 - Node.js 18+ or Bun
 - Git
 
 ### Steps
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/Rohit18-06/portfolio.git
 cd portfolio
 ```
 
 2. Install dependencies:
+
 ```bash
 bun install
 # or if using npm
@@ -54,6 +57,7 @@ npm install
 ```
 
 3. Start the development server:
+
 ```bash
 bun run dev
 # or
@@ -65,6 +69,7 @@ npm run dev
 ## Usage
 
 ### Development
+
 ```bash
 bun run dev          # Start development server with hot reload
 bun run build:dev    # Build in development mode
@@ -73,6 +78,7 @@ npm run format       # Format code with Prettier
 ```
 
 ### Production
+
 ```bash
 bun run build        # Create optimized production build
 bun run preview      # Preview production build locally

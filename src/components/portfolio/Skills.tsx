@@ -7,7 +7,11 @@ export function Skills() {
     <Section
       id="skills"
       eyebrow="Skills"
-      title={<>A stack for <span className="text-gradient">building end-to-end</span>.</>}
+      title={
+        <>
+          A stack for <span className="text-gradient">building end-to-end</span>.
+        </>
+      }
       subtitle="From core CS fundamentals to modern AI APIs — organized by how I actually use them."
     >
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">

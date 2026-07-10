@@ -26,10 +26,9 @@ export function Navbar() {
     NAV.forEach((n) => {
       const el = document.getElementById(n.id);
       if (!el) return;
-      const io = new IntersectionObserver(
-        ([e]) => e.isIntersecting && setActive(n.id),
-        { rootMargin: "-40% 0px -55% 0px" },
-      );
+      const io = new IntersectionObserver(([e]) => e.isIntersecting && setActive(n.id), {
+        rootMargin: "-40% 0px -55% 0px",
+      });
       io.observe(el);
       observers.push(io);
     });
@@ -53,7 +52,9 @@ export function Navbar() {
                 <a
                   href={`#${n.id}`}
                   className={`relative px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
-                    active === n.id ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                    active === n.id
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {active === n.id && (

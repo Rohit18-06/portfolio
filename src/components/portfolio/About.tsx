@@ -8,7 +8,11 @@ export function About() {
     <Section
       id="about"
       eyebrow="About"
-      title={<>Turning ideas into <span className="text-gradient">shippable software</span>.</>}
+      title={
+        <>
+          Turning ideas into <span className="text-gradient">shippable software</span>.
+        </>
+      }
       subtitle={resume.about.summary}
     >
       <div className="grid md:grid-cols-5 gap-6">
@@ -30,7 +34,9 @@ export function About() {
                   {s.value}
                   <span className="text-base text-muted-foreground">{s.suffix}</span>
                 </div>
-                <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{s.label}</div>
+                <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
+                  {s.label}
+                </div>
               </motion.div>
             ))}
           </div>

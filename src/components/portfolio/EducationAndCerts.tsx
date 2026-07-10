@@ -8,7 +8,11 @@ export function Education() {
     <Section
       id="education"
       eyebrow="Education"
-      title={<>Foundations in <span className="text-gradient">computer science</span>.</>}
+      title={
+        <>
+          Foundations in <span className="text-gradient">computer science</span>.
+        </>
+      }
     >
       <div className="grid gap-6">
         {resume.education.map((ed) => (
@@ -28,10 +32,15 @@ export function Education() {
                   <Award className="size-4 text-violet" /> {ed.score}
                 </div>
                 <div className="mt-5">
-                  <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Relevant coursework</div>
+                  <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                    Relevant coursework
+                  </div>
                   <div className="flex flex-wrap gap-1.5">
                     {ed.coursework.map((c) => (
-                      <span key={c} className="text-[11px] font-mono px-2 py-1 rounded-full bg-secondary/60 border border-border">
+                      <span
+                        key={c}
+                        className="text-[11px] font-mono px-2 py-1 rounded-full bg-secondary/60 border border-border"
+                      >
                         {c}
                       </span>
                     ))}
@@ -51,7 +60,11 @@ export function Certifications() {
     <Section
       id="certifications"
       eyebrow="Certifications & Achievements"
-      title={<>Learning by <span className="text-gradient">doing</span>.</>}
+      title={
+        <>
+          Learning by <span className="text-gradient">doing</span>.
+        </>
+      }
     >
       <div className="grid md:grid-cols-2 gap-6">
         <div className="grid sm:grid-cols-2 gap-4 content-start">

@@ -8,7 +8,11 @@ export function Projects() {
     <Section
       id="projects"
       eyebrow="Projects"
-      title={<>Things I&rsquo;ve <span className="text-gradient">designed & shipped</span>.</>}
+      title={
+        <>
+          Things I&rsquo;ve <span className="text-gradient">designed & shipped</span>.
+        </>
+      }
       subtitle="A snapshot of what I've been building — happy to walk through the code or architecture."
     >
       <div className="grid md:grid-cols-2 gap-6">
@@ -40,25 +44,33 @@ export function Projects() {
                 </div>
 
                 <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-display text-xl md:text-2xl font-semibold leading-tight">{p.name}</h3>
+                  <h3 className="font-display text-xl md:text-2xl font-semibold leading-tight">
+                    {p.name}
+                  </h3>
                   <span className="grid place-items-center size-9 rounded-full bg-secondary group-hover:bg-foreground group-hover:text-background transition-colors">
                     <ArrowUpRight className="size-4" />
                   </span>
                 </div>
 
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.description}</p>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  {p.description}
+                </p>
 
                 <ul className="mt-4 space-y-1.5 text-sm">
                   {p.features.map((f) => (
                     <li key={f} className="text-muted-foreground">
-                      <span className="text-cyan mr-2">▸</span>{f}
+                      <span className="text-cyan mr-2">▸</span>
+                      {f}
                     </li>
                   ))}
                 </ul>
 
                 <div className="mt-5 flex flex-wrap gap-1.5">
                   {p.tech.map((t) => (
-                    <span key={t} className="text-[11px] font-mono px-2 py-1 rounded-full bg-secondary/60 border border-border">
+                    <span
+                      key={t}
+                      className="text-[11px] font-mono px-2 py-1 rounded-full bg-secondary/60 border border-border"
+                    >
                       {t}
                     </span>
                   ))}

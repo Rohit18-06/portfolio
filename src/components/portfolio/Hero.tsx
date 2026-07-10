@@ -6,7 +6,10 @@ import { resume } from "@/data/resume";
 
 export function Hero() {
   return (
-    <section id="home" className="relative min-h-[100svh] flex items-center overflow-hidden bg-grid">
+    <section
+      id="home"
+      className="relative min-h-[100svh] flex items-center overflow-hidden bg-grid"
+    >
       {/* Background gradient blobs */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
         <div className="absolute -top-40 -left-40 size-[520px] rounded-full bg-cyan/25 blur-[120px] animate-float" />

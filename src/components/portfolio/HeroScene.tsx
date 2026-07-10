@@ -3,7 +3,19 @@ import { Float, Icosahedron, MeshDistortMaterial, Sphere, TorusKnot } from "@rea
 import { Suspense, useRef } from "react";
 import * as THREE from "three";
 
-function Blob({ position, color, speed = 0.3, distort = 0.45, scale = 1 }: { position: [number, number, number]; color: string; speed?: number; distort?: number; scale?: number }) {
+function Blob({
+  position,
+  color,
+  speed = 0.3,
+  distort = 0.45,
+  scale = 1,
+}: {
+  position: [number, number, number];
+  color: string;
+  speed?: number;
+  distort?: number;
+  scale?: number;
+}) {
   const ref = useRef<THREE.Mesh>(null!);
   useFrame((state) => {
     if (!ref.current) return;
@@ -13,7 +25,13 @@ function Blob({ position, color, speed = 0.3, distort = 0.45, scale = 1 }: { pos
   return (
     <Float speed={1.4} rotationIntensity={0.6} floatIntensity={1.4}>
       <Sphere ref={ref} args={[1, 64, 64]} position={position} scale={scale}>
-        <MeshDistortMaterial color={color} distort={distort} speed={1.6} roughness={0.15} metalness={0.35} />
+        <MeshDistortMaterial
+          color={color}
+          distort={distort}
+          speed={1.6}
+          roughness={0.15}
+          metalness={0.35}
+        />
       </Sphere>
     </Float>
   );
@@ -89,7 +107,13 @@ export function HeroScene() {
           <directionalLight position={[5, 5, 5]} intensity={1.2} color="#22d3ee" />
           <pointLight position={[-4, -2, -3]} intensity={2} color="#a78bfa" />
           <Blob position={[0, 0, 0]} color="#0891b2" scale={1.6} />
-          <Blob position={[-1.4, -1.2, 1.2]} color="#7c3aed" speed={0.4} distort={0.55} scale={0.6} />
+          <Blob
+            position={[-1.4, -1.2, 1.2]}
+            color="#7c3aed"
+            speed={0.4}
+            distort={0.55}
+            scale={0.6}
+          />
           <Knot />
           <Ico />
           <Particles />
